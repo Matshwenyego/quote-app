@@ -9,6 +9,7 @@ import {
   ActionIcon,
 } from "@mantine/core";
 import { Volume, Copy, BrandTwitter } from "tabler-icons-react";
+import { toast } from "react-toastify";
 
 const synth = window.speechSynthesis;
 
@@ -37,6 +38,11 @@ export default function Quote(props) {
     speak(content);
   };
 
+  const handleCopyQuote = () => {
+    navigator.clipboard.writeText(content);
+    toast.info("Quote Copied");
+  };
+
   return (
     <Paper shadow={"xs"} p="md" style={{ minWidth: "80vw" }}>
       <Blockquote cite={author ? `-${author}` : ""}>{content}</Blockquote>
@@ -53,7 +59,7 @@ export default function Quote(props) {
             <Volume size={24} />
           </ActionIcon>
           <Space w="xs" />
-          <ActionIcon size={"lg"} variant="outline">
+          <ActionIcon onClick={handleCopyQuote} size={"lg"} variant="outline">
             <Copy size={24} />
           </ActionIcon>
           <Space w="xs" />

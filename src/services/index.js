@@ -6,17 +6,6 @@ const headers = {
     Authorization: "",
   },
 };
-// const instance = Axios.create();
-
-// instance.interceptors.request.use(
-//   async function (config) {
-//     config.headers.Authorization = "Bearer " + "token here";
-//     return config;
-//   },
-//   function (error) {
-//     return Promise.reject(error);
-//   }
-// );
 
 export async function get(url) {
   const response = Axios.get(url, headers);

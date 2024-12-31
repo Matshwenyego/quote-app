@@ -8,8 +8,8 @@ function App() {
   const [quote, setQuote] = useState();
 
   const getQuote = async () => {
-    const response = get(`${process.env.REACT_APP_BASE_URL}/random`);
-    setQuote(await response);
+    const response = await get(`${process.env.REACT_APP_BASE_URL}/quotes/1`);
+    setQuote(response);
   };
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function App() {
         <Center style={{ height: "100vh" }}>
           <Quote
             author={quote ? quote.author : ""}
-            content={quote ? quote.content : ""}
+            content={quote ? quote.quote : ""}
             getQuote={getQuote}
           />
         </Center>

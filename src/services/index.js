@@ -3,7 +3,6 @@ import Axios from "axios";
 const headers = {
   headers: {
     "Content-Type": "application/json",
-    Authorization: "",
   },
 };
 

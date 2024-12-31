@@ -1,4 +1,5 @@
 import Axios from "axios";
+import { toast } from "react-toastify";
 
 const headers = {
   headers: {
@@ -12,10 +13,7 @@ export async function get(url) {
     const responseJson = await response;
     return responseJson.data;
   } catch (err) {
-    if (err.response?.data) {
-      return err.response.data;
-    } else {
-      return err.response;
-    }
+    toast.error(err.message);
+    return err.message;
   }
 }

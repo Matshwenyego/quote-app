@@ -22,7 +22,7 @@ const speak = (content) => {
     console.log("Done speaking...");
   };
   toSpeak.onerror = (e) => {
-    console.log("Error on speaking...");
+    toast.error("Error on speaking...");
   };
   synth.speak(toSpeak);
 };
